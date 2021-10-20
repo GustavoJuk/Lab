@@ -1,5 +1,4 @@
 CREATE DATABASE IF NOT EXISTS catdog_bank;
-
 USE catdog_bank;
 
 CREATE TABLE IF NOT EXISTS Cargo (
