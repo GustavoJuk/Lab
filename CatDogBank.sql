@@ -1,14 +1,14 @@
-CREATE DATABASE IF NOT EXISTS catdog_bank;
+CREATE DATABASE catdog_bank;
 USE catdog_bank;
 
-CREATE TABLE IF NOT EXISTS Cargo (
+CREATE TABLE Cargo (
 	id INT NOT NULL,
 	cargo VARCHAR(25) NOT NULL,
 	salario DECIMAL(10,2) NOT NULL,
 	PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS Filial (
+CREATE TABLE Filial (
 	id INT NOT NULL,
 	nome_filial VARCHAR(80) NOT NULL,
 	logradouro VARCHAR(50) NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS Filial (
 	PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS Funcionario (
+CREATE TABLE Funcionario (
 	id INT NOT NULL,
 	empregado_nome VARCHAR(80) NOT NULL,
 	genero CHAR(1) NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS Funcionario (
 	nascimento DATE NOT NULL,
 	estado_civil char(1) NOT NULL,
 	filhos INT NOT NULL,
-	pcd BOOL NOT NULL,
+	pcd INT NOT NULL,
 	logradouro VARCHAR(50) NOT NULL,
 	numero_endereco VARCHAR(5) NOT NULL,
     bairro VARCHAR(50) NOT NULL,
@@ -47,15 +47,15 @@ CREATE TABLE IF NOT EXISTS Funcionario (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS Produto (
+CREATE TABLE Produto (
 	id INT NOT NULL,
 	nome_produto VARCHAR(25) NOT NULL,
 
 	PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS Cliente (
-	id INT AUTO_INCREMENT NOT NULL,
+CREATE TABLE Cliente (
+	id INT NOT NULL,
 	cliente_nome VARCHAR(80) NOT NULL,
 	genero CHAR(1) NOT NULL,
 	ddd CHAR(2) NOT NULL,
@@ -77,13 +77,13 @@ CREATE TABLE IF NOT EXISTS Cliente (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS Carteira_Produto (
-	id INT AUTO_INCREMENT NOT NULL,
+CREATE TABLE Carteira_Produto (
+	id INT NOT NULL,
     cliente INT NOT NULL,
 	produto INT NOT NULL,
     adesao_data DATE NOT NULL,
     cancelamento_data DATE,
-    saldo DOUBLE NOT NULL,
+    saldo FLOAT,
 
 	FOREIGN KEY (cliente) REFERENCES Cliente(id),
     FOREIGN KEY (produto) REFERENCES Produto(id),
