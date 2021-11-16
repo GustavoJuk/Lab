@@ -25,26 +25,26 @@ INSERT INTO Produto (id, nome_produto) VALUES
 (2, 'Poupança'),
 (3, 'Empréstimo');
 
-INSERT INTO Cliente (id, cliente_nome, genero, ddd, celular, inicio_relacionamento, fim_relacionamento, filial, nascimento, estado_civil, logradouro, bairro, cidade, uf, cep) VALUES
-('Genivázio Pessoa', 'M', '61', '999710201', '2000-07-01', '2021-08-31', 2, '1950-01-01', 'C', 'QCZ 35', '445', 'Ceilândia', 'Brasília', 'DF', '72114335'),
-('Maria da Silva', 'F', '61', '32114564', '2001-07-01', NULL, 2, '1957-01-01', 'C', 'QCZ 38', '333', 'Engenho das Lages', 'Brasília', 'DF', '74333155'),
-('Elza Pereira', 'F', '63', '987771354', '2009-09-01', NULL, 3, '1970-08-31', 'S', 'QR 11', '445', 'Ceilândia', 'Brasília', 'DF', '72114335'),
-('Genivázio Guedes', 'M', '61', '987713456', '2011-09-01', NULL, 2, '1953-09-01', 'V', 'QCZ 32', '11', 'Riacho Fundo I', 'Brasília', 'DF', '74331145'),
-('Genivázio Bruno Jr', 'M', '64', '976513445', '2014-06-08', '2021-08-01', 2, '1999-03-09', 'S', 'QRR 45', '1', 'Brazlândia', 'Brasília', 'DF', '74566444'),
-('Greyze Honorato', 'F', '61', '994466533', '2021-09-01', NULL, 5, '2001-07-01', 'S', 'QCR 23', '17', 'Jockey Club', 'Xambioá', 'TO', '64331445'),
-('Yewellyn Rocha', 'F',	'64', '987710102', '2021-07-31', NULL, 5, '2001-08-31', 'S', 'QCR 55', '8', 'Santa Rita', 'Xambioá', 'TO', '64331445');
+INSERT INTO Cliente (id, cliente_nome, genero, ddd, celular, inicio_relacionamento, fim_relacionamento, filial, nascimento, estado_civil, logradouro, numero_endereco, bairro, cidade, uf, cep) VALUES
+(1,'Genivázio Pessoa', 'M', '61', '999710201', '2000-07-01', '2021-08-31', 2, '1950-01-01', 'C', 'QCZ 35', '445', 'Ceilândia', 'Brasília', 'DF', '72114335'),
+(2,'Maria da Silva', 'F', '61', '32114564', '2001-07-01', NULL, 2, '1957-01-01', 'C', 'QCZ 38', '333', 'Engenho das Lages', 'Brasília', 'DF', '74333155'),
+(3,'Elza Pereira', 'F', '63', '987771354', '2009-09-01', NULL, 3, '1970-08-31', 'S', 'QR 11', '445', 'Ceilândia', 'Brasília', 'DF', '72114335'),
+(4,'Genivázio Guedes', 'M', '61', '987713456', '2011-09-01', NULL, 2, '1953-09-01', 'V', 'QCZ 32', '11', 'Riacho Fundo I', 'Brasília', 'DF', '74331145'),
+(5,'Genivázio Bruno Jr', 'M', '64', '976513445', '2014-06-08', '2021-08-01', 2, '1999-03-09', 'S', 'QRR 45', '1', 'Brazlândia', 'Brasília', 'DF', '74566444'),
+(6,'Greyze Honorato', 'F', '61', '994466533', '2021-09-01', NULL, 5, '2001-07-01', 'S', 'QCR 23', '17', 'Jockey Club', 'Xambioá', 'TO', '64331445'),
+(7,'Yewellyn Rocha', 'F',	'64', '987710102', '2021-07-31', NULL, 5, '2001-08-31', 'S', 'QCR 55', '8', 'Santa Rita', 'Xambioá', 'TO', '64331445');
 
 INSERT INTO Carteira_Produto (id, cliente, produto, adesao_data, cancelamento_data, saldo) VALUES
-(1, 1, '2020-01-01', '2021-01-31', 0),
-( 2, 2, '2020-01-18', NULL, 100),
-( 3, 3, '2020-02-04', NULL, 250),
-( 2, 1, '2020-02-21', NULL, 400),
-( 6, 1, '2020-03-09', NULL, 350), 
-(3, 3, '2020-03-26', '2021-05-06', 0),
-(4, 1, '2020-04-12', NULL, 550),
-(5, 1, '2020-04-29', NULL,  100),
-(4, 2, '2020-05-16',  NULL, 100 ),
-(2, 3, '2020-06-02', '2021-07-21', 100),
-(6, 2,  '2020-06-19', NULL, 1350), 
-(7, 3, '2020-07-06', NULL, 1111);
+(1, 1, 1, '2020-01-01', '2021-01-31', 0),
+(2, 2, 2, '2020-01-18', NULL, 100),
+(3, 3, 3, '2020-02-04', NULL, 250),
+(4, 2, 1, '2020-02-21', NULL, 400),
+(5, 6, 1, '2020-03-09', NULL, 350), 
+(6, 3, 3, '2020-03-26', '2021-05-06', 0),
+(7, 4, 1, '2020-04-12', NULL, 550),
+(8, 5, 1, '2020-04-29', NULL,  100),
+(9, 4, 2, '2020-05-16',  NULL, 100 ),
+(10, 2, 3, '2020-06-02', '2021-07-21', 100),
+(11, 6, 2,  '2020-06-19', NULL, 1350), 
+(12, 7, 3, '2020-07-06', NULL, 1111);
 
