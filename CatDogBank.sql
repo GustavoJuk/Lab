@@ -207,10 +207,10 @@ INNER JOIN Cliente c on c.fim_relacionamento = NULL
 
 
 --VIEW
-CREATE VIEW View_Funcionarios AS 
+/*CREATE VIEW View_Funcionarios AS 
 SELECT id, empregado_nome, genero, ddd, celular, admissao, demissao, cargo, filial, nascimento, estado_civil, filhos, pcd, logradouro, numero_endereco, bairro, cidade, uf, cep 
 FROM Funcionario
-WHERE cargo = 1;
+WHERE cargo = 1;*/
 
 
 --GRANT & REVOKE
