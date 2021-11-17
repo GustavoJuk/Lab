@@ -1,5 +1,5 @@
 --Criação do banco de dados
-CREATE DATABASE catdog_bank;
+--CREATE DATABASE catdog_bank;
 USE catdog_bank;
 
 
@@ -93,7 +93,6 @@ CREATE TABLE Carteira_Produto (
     
     PRIMARY KEY (id)
 );
-
 
 --INSERTS
 INSERT INTO Cargo (id, cargo, salario) VALUES 
@@ -248,3 +247,11 @@ DELETE FROM ClienteRollBack_Commit -- apaga todos registros da tabela
 SELECT * FROM ClienteRollBack_Commit -- mostra tabela vazia
 COMMIT TRANSACTION; -- confirma a transação
 SELECT * FROM ClienteRollBack_Commit; -- agora mostra a tabela vazia em definitivo
+
+--TRIGGERS
+GO
+CREATE TRIGGER TR_Funcionario ON Funcionario
+FOR INSERT AS
+UPDATE Funcionario
+SET Funcionario.filhos = Funcionario.filhos + 1
+FROM Funcionario WHERE Funcionario.cargo = 1
