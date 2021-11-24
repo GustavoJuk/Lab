@@ -19,14 +19,14 @@ REVOKE SELECT ON [dbo].[ADDRESS] TO USER_TBL;
 
 --Criação das Tabelas
 CREATE TABLE Cargo (
-	id INT NOT NULL,
+	id INT NOT NULL IDENTITY(1,1),
 	cargo VARCHAR(25) NOT NULL,
 	salario DECIMAL(10,2) NOT NULL,
 	PRIMARY KEY (id)
 );
 
 CREATE TABLE Filial (
-	id INT NOT NULL,
+	id INT NOT NULL IDENTITY(1,1),
 	nome_filial VARCHAR(80) NOT NULL,
 	logradouro VARCHAR(50) NOT NULL,
 	numero VARCHAR(5) NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE Filial (
 );
 
 CREATE TABLE Funcionario (
-	id INT NOT NULL,
+	id INT NOT NULL IDENTITY(1,1),
 	empregado_nome VARCHAR(80) NOT NULL,
 	genero CHAR(1) NOT NULL,
 	ddd CHAR(2) NOT NULL,
@@ -65,14 +65,14 @@ CREATE TABLE Funcionario (
 );
 
 CREATE TABLE Produto (
-	id INT NOT NULL,
+	id INT NOT NULL IDENTITY(1,1),
 	nome_produto VARCHAR(25) NOT NULL,
 
 	PRIMARY KEY (id)
 );
 
 CREATE TABLE Cliente (
-	id INT NOT NULL,
+	id INT NOT NULL IDENTITY(1,1),
 	cliente_nome VARCHAR(80) NOT NULL,
 	genero CHAR(1) NOT NULL,
 	ddd CHAR(2) NOT NULL,
@@ -94,8 +94,12 @@ CREATE TABLE Cliente (
     PRIMARY KEY (id)
 );
 
+ALTER TABLE Cliente
+ALTER COLUMN cliente_nome
+VARCHAR (50) NOT NULL;
+
 CREATE TABLE Carteira_Produto (
-	id INT NOT NULL,
+	id INT NOT NULL IDENTITY(1,1),
     cliente INT NOT NULL,
 	produto INT NOT NULL,
     adesao_data DATE NOT NULL,
@@ -220,10 +224,11 @@ INNER JOIN Cliente c on c.fim_relacionamento = NULL
 
 
 --VIEW
-/*CREATE VIEW View_Funcionarios AS 
+GO
+CREATE VIEW View_Funcionarios AS 
 SELECT id, empregado_nome, genero, ddd, celular, admissao, demissao, cargo, filial, nascimento, estado_civil, filhos, pcd, logradouro, numero_endereco, bairro, cidade, uf, cep 
 FROM Funcionario
-WHERE cargo = 1;*/
+WHERE cargo = 1;
 
 --COMMIT & ROLLBACK
 /*criar tabela para testes*/
@@ -252,3 +257,14 @@ FOR INSERT AS
 UPDATE Funcionario
 SET Funcionario.filhos = Funcionario.filhos + 1
 FROM Funcionario WHERE Funcionario.cargo = 1;
+
+--PROCEDURES
+GO 
+CREATE PROCEDURE inatividade_funcionario
+AS
+BEGIN
+SET NOCOUNT ON;
+SELECT Funcionario.id, Funcionario.demissao FROM Funcionario
+WHERE Funcionario.demissao != NULL;
+END;
+EXECUTE inatividade_funcionario;
