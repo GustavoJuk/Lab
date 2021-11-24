@@ -1,7 +1,21 @@
 --Criação do banco de dados
---CREATE DATABASE catdog_bank;
+CREATE DATABASE catdog_bank;
 USE catdog_bank;
 
+--GRANT & REVOKE
+/*Criando o login*/
+CREATE LOGIN LOG_TBL
+WITH PASSWORD = '123456';
+
+/*Criando o usuário*/
+CREATE USER USER_TBL
+FOR LOGIN LOG_TBL;
+
+/*GRANT*/
+GRANT SELECT ON [dbo].[ADDRESS] TO USER_TBL;
+
+/*REVOKE*/
+REVOKE SELECT ON [dbo].[ADDRESS] TO USER_TBL;
 
 --Criação das Tabelas
 CREATE TABLE Cargo (
@@ -211,23 +225,6 @@ SELECT id, empregado_nome, genero, ddd, celular, admissao, demissao, cargo, fili
 FROM Funcionario
 WHERE cargo = 1;*/
 
-
---GRANT & REVOKE
-/*Criando o login*/
-CREATE LOGIN LOG_TBL
-WITH PASSWORD = '123456';
-
-/*Criando o usuário*/
-CREATE USER USER_TBL
-FOR LOGIN LOG_TBL;
-
-/*GRANT*/
-GRANT SELECT ON [dbo].[ADDRESS] TO USER_TBL;
-
-/*REVOKE*/
-REVOKE SELECT ON [dbo].[ADDRESS] TO USER_TBL;
-
-
 --COMMIT & ROLLBACK
 /*criar tabela para testes*/
 SELECT Cliente.cliente_nome, Cliente.filial
@@ -254,4 +251,4 @@ CREATE TRIGGER TR_Funcionario ON Funcionario
 FOR INSERT AS
 UPDATE Funcionario
 SET Funcionario.filhos = Funcionario.filhos + 1
-FROM Funcionario WHERE Funcionario.cargo = 1
+FROM Funcionario WHERE Funcionario.cargo = 1;
